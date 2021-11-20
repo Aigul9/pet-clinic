@@ -26,7 +26,7 @@
             <uniqueVersion>false</uniqueVersion>
             <id>corp1</id>
             <name>My Repository</name>
-            <url>C:\Users\Aigul\.m2</url>
+            <url>file:///Users/Aigul/.m2</url>
             <layout>default</layout>
         </repository>
     </distributionManagement>
@@ -48,9 +48,10 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
+                <artifactId>maven-release-plugin</artifactId>
                 <configuration>
-                    <goal>install</goal>
+                    <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
