@@ -21,16 +21,6 @@
         <java.version>11</java.version>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <uniqueVersion>false</uniqueVersion>
-            <id>corp1</id>
-            <name>My Repository</name>
-            <url>file:///Users/Aigul/.m2</url>
-            <layout>default</layout>
-        </repository>
-    </distributionManagement>
-
     <build>
         <plugins>
             <plugin>
