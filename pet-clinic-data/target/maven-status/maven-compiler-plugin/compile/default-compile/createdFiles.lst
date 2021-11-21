@@ -1,8 +1,14 @@
 springframework\services\PetService.class
+springframework\model\BaseEntity.class
+springframework\services\map\PetServiceMap.class
 springframework\model\Vet.class
-springframework\model\Owner.class
 springframework\model\Pet.class
 springframework\services\OwnerService.class
-springframework\model\Person.class
 springframework\model\PetType.class
 springframework\services\VetService.class
+springframework\services\map\OwnerServiceMap.class
+springframework\services\map\VetServiceMap.class
+springframework\services\CrudService.class
+springframework\model\Owner.class
+springframework\model\Person.class
+springframework\services\map\AbstractMapService.class
