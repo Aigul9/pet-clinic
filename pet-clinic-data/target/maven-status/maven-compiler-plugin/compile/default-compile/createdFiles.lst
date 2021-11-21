@@ -1,5 +1,8 @@
+springframework\services\PetService.class
 springframework\model\Vet.class
 springframework\model\Owner.class
 springframework\model\Pet.class
+springframework\services\OwnerService.class
 springframework\model\Person.class
 springframework\model\PetType.class
+springframework\services\VetService.class
