@@ -1,2 +1,4 @@
-springframework\PetClinicApplication.class
+springframework\controllers\VetController.class
 springframework\controllers\IndexController.class
+springframework\controllers\OwnerController.class
+springframework\PetClinicApplication.class
