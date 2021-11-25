@@ -25,7 +25,15 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
 
     @Override
     public PetType save(PetType object) {
-        return super.save(object);
+        if (object != null) {
+            if (object.getId() == null) {
+                return super.save(object);
+            } else {
+                return object;
+            }
+        } else {
+            throw new RuntimeException("Pet Type is required");
+        }
     }
 
     @Override
