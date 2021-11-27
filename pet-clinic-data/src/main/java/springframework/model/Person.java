@@ -1,8 +1,16 @@
 package springframework.model;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class Person extends BaseEntity {
 
+    // hibernate by default converts to snake case (redundant)
+    @Column(name = "firsT_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
 
     public String getFirstName() {
