@@ -1,11 +1,26 @@
 package springframework.model;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "vets")
 public class Vet extends Person {
 
-    private Set<Specialty> specialties = new HashSet<>();;
+    // specialties would be null if lazy (not loaded yet)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "vet_specialty",
+            joinColumns = @JoinColumn(name = "vet_id"),
+            inverseJoinColumns = @JoinColumn(name = "specialty_id"))
+    private Set<Specialty> specialties = new HashSet<>();
 
     public Set<Specialty> getSpecialties() {
         return specialties;
