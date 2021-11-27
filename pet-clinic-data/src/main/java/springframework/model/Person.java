@@ -7,7 +7,7 @@ import javax.persistence.MappedSuperclass;
 public class Person extends BaseEntity {
 
     // hibernate by default converts to snake case (redundant)
-    @Column(name = "firsT_name")
+    @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
