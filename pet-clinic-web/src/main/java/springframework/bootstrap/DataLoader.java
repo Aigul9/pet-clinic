@@ -7,10 +7,12 @@ import springframework.model.Pet;
 import springframework.model.PetType;
 import springframework.model.Specialty;
 import springframework.model.Vet;
+import springframework.model.Visit;
 import springframework.services.OwnerService;
 import springframework.services.PetTypeService;
 import springframework.services.SpecialtyService;
 import springframework.services.VetService;
+import springframework.services.VisitService;
 
 import java.time.LocalDate;
 
@@ -21,12 +23,18 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService,
+                      VetService vetService,
+                      PetTypeService petTypeService,
+                      SpecialtyService specialtyService,
+                      VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -102,7 +110,17 @@ public class DataLoader implements CommandLineRunner {
         pet2.setBirthDate(LocalDate.now());
         owner2.getPets().add(pet2);
 
+        ownerService.save(owner1);
+        ownerService.save(owner2);
+
         System.out.println(dog.getName());
         System.out.println(dog.getId());
+
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(pet2);
+        catVisit.setDescription("Sneezy Kitty");
+        catVisit.setDate(LocalDate.now());
+        visitService.save(catVisit);
     }
 }
