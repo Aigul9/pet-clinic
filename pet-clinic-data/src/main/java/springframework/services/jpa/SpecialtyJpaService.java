@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-@Profile("jpa")
+@Profile({"default", "jpa"})
 public class SpecialtyJpaService implements SpecialtyService {
 
     private final SpecialtyRepository specialtyRepository;

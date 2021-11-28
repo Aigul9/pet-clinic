@@ -1,5 +1,6 @@
 package springframework.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import springframework.model.Owner;
 import springframework.services.OwnerService;
@@ -9,6 +10,7 @@ import springframework.services.PetTypeService;
 import java.util.Set;
 
 @Service
+@Profile("map")
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;

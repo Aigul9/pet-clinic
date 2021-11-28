@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-@Profile("jpa")
+@Profile({"default", "jpa"})
 public class VetJpaService implements VetService {
 
     private final VetRepository vetRepository;
