@@ -114,6 +114,9 @@ public class DataLoader implements CommandLineRunner {
         pet2.setBirthDate(LocalDate.now());
         owner2.getPets().add(pet2);
 
+//        builder patter
+//        Pet.builder().name("Just Cat").petType(cat).build();
+
         petService.save(pet1);
         petService.save(pet2);
 
