@@ -77,7 +77,7 @@ class OwnerJpaServiceTest {
     @Test
     void save() {
         Owner owner = Owner.builder().id(ID).build();
-        when(ownerRepository.save(any())).thenReturn(returnOwner);
+        when(ownerRepository.save(any(Owner.class))).thenReturn(returnOwner);
         Owner savedOwner = ownerJpaService.save(owner);
         assertNotNull(savedOwner);
         verify(ownerRepository).save(any());
