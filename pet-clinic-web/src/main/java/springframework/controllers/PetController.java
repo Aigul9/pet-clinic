@@ -7,6 +7,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,7 +47,7 @@ public class PetController {
         return ownerService.findById(ownerId);
     }
 
-    @ModelAttribute("owner")
+    @InitBinder("owner")
     public void initOwnerBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
@@ -70,7 +71,7 @@ public class PetController {
             model.put("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
-//            pet.setOwner(owner);
+            pet.setOwner(owner);
             petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }
@@ -85,10 +86,14 @@ public class PetController {
     @PostMapping("/pets/{petId}/edit")
     public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model) {
         if (result.hasErrors()) {
+            pet.setOwner(owner);
             model.addAttribute("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
-            owner.getPets().add(pet);
+            pet.setOwner(owner);
+            pet.setPetType(pet.getPetType());
+            pet.setName(pet.getName());
+            pet.setBirthDate(pet.getBirthDate());
             petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }

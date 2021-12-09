@@ -50,7 +50,8 @@ class PetControllerTest {
 
     @BeforeEach
     void setUp() {
-        owner = Owner.builder().id(1L).build();
+        owner = new Owner();
+        owner.setId(1L);
 
         petTypes = new HashSet<>();
         petTypes.add(PetType.builder().id(1L).name("Dog").build());

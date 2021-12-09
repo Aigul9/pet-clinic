@@ -40,11 +40,9 @@ public class Owner extends Person {
         this.address = address;
         this.city = city;
         this.phone = phone;
-        this.pets = pets;
-    }
-
-    public Pet getPet(String name) {
-        return getPet(name, false);
+        if (pets != null) {
+            this.pets = pets;
+        }
     }
 
     public Pet getPet(String name, boolean ignoreNew) {
