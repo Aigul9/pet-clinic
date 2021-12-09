@@ -7,6 +7,7 @@ import springframework.services.OwnerService;
 import springframework.services.PetService;
 import springframework.services.PetTypeService;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
@@ -67,5 +68,11 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
                 .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("Owner is not found, lastName: " + lastName));
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        //todo - check repo
+        return null;
     }
 }
